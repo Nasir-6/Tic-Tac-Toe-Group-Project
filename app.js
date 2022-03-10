@@ -8,6 +8,7 @@ const playerTwoWins = document.getElementById('player-two-wins')
 
 // Boolean to determine who's turn it is - start with player 1 - X
 let isCirclePlayerTurn = false;
+let restartRequired = false;
 
 const gridList = document.querySelectorAll(".grid");
 const WINNINGCOMBINATIONS = [
@@ -59,11 +60,15 @@ function addGridIconEventListener(oneGrid) {
                 if(isCirclePlayerTurn){
                     console.log("Player 2 wins (o)")
                     playerTwoWins.innerText++
+                    restartRequired = true;
+                    while(restartRequired){}
                     // todo: prevent player from clicking anywhere else 
 
                 } else{
                     console.log("Player 1 wins (x)")
                     playerOneWins.innerText++
+                    restartRequired = true;
+                    while(restartRequired){}
                     // todo: prevent player from clicking anywhere else 
                 }   
 
@@ -159,6 +164,7 @@ function handleRestartButtonClick () {
         }
         isCirclePlayerTurn = false;
     }
+    restartRequired = false;
 }
 
 restartButton.addEventListener("click", handleRestartButtonClick);
