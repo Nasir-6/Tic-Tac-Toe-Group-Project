@@ -1,9 +1,9 @@
 console.log("JS is working")
 console.log("branch")
 
-const playerOneWins = 0;
+const playerOneWins = document.getElementById('player-one-wins')
 
-const playerTwoWins = 0;
+const playerTwoWins = document.getElementById('player-two-wins')
 
 
 // Boolean to determine who's turn it is - start with player 1 - X
@@ -35,7 +35,6 @@ function addGridIconEventListener(oneGrid) {
         // console.log("Grid is being occupied by " + oneGrid.classList[1])
 
         if (!isUsed) {
-            console.log("Setting Grid Icon");
             let icon = document.createElement("i");
             icon.classList.add("fa-solid");
             icon.classList.add("fa-6x");
@@ -59,8 +58,13 @@ function addGridIconEventListener(oneGrid) {
             if(currentPlayerWins()){
                 if(isCirclePlayerTurn){
                     console.log("Player 2 wins (o)")
+                    playerTwoWins.innerText++
+                    // todo: prevent player from clicking anywhere else 
+
                 } else{
                     console.log("Player 1 wins (x)")
+                    playerOneWins.innerText++
+                    // todo: prevent player from clicking anywhere else 
                 }   
 
             } else{
@@ -73,7 +77,6 @@ function addGridIconEventListener(oneGrid) {
 
             // Switch turns
             isCirclePlayerTurn = !isCirclePlayerTurn;
-            console.log(gridList);
             
 
             
@@ -90,7 +93,7 @@ function currentPlayerWins() {
     const currentPlayerPositions = grabCurrentPlayerPositions();
     console.log(currentPlayerPositions);
     //loop through winning combination
-   hasWinningCombination(currentPlayerPositions);
+   return hasWinningCombination(currentPlayerPositions);
     // check if there is a winning combination from current player indexes
     // use indexOF.
     //If win console.log "Player ... wins"
