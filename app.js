@@ -17,7 +17,9 @@ function addGridIconEventListener(oneGrid) {
     
     console.log(oneGrid.classList)
     // Boolean to see if the grid is used (grab the class)
-    isUsed = oneGrid.classList[1] === "used";
+    isUsed = oneGrid.classList[2] === "used";
+    console.log("Grid is being occupied by " + oneGrid.classList[1])
+
 
     if (!isUsed) {
       console.log("Setting Grid Icon");
@@ -27,8 +29,11 @@ function addGridIconEventListener(oneGrid) {
 
       if (isCirclePlayer) {
         icon.classList.add("fa-o");
+        // keep track of what is inside of the grid (o being placed)
+        oneGrid.classList.add("o")
       } else {
         icon.classList.add("fa-x");
+        oneGrid.classList.add("x")
       }
       // Once icon is made - place in the grid
       oneGrid.appendChild(icon);
