@@ -2,7 +2,7 @@ console.log("JS is working")
 
 
 // Boolean to determine who's turn it is - start with player 1 - X
-let isCirclePlayer = false;
+let isCirclePlayerTurn = false;
 
 const gridList = document.querySelectorAll(".grid");
 const WINNINGCOMBINATIONS = [
@@ -35,7 +35,7 @@ function addGridIconEventListener(oneGrid) {
             icon.classList.add("fa-solid");
             icon.classList.add("fa-6x");
 
-            if (isCirclePlayer) {
+            if (isCirclePlayerTurn) {
                 icon.classList.add("fa-o");
                 // keep track of what is inside of the grid (o being placed)
                 oneGrid.classList.add("o")
@@ -49,7 +49,7 @@ function addGridIconEventListener(oneGrid) {
             checkIfCurrentPlayerWin();
 
             // Switch turns
-            isCirclePlayer = !isCirclePlayer;
+            isCirclePlayerTurn = !isCirclePlayerTurn;
 
             // Set grid to used (add used class)
             oneGrid.classList.add("used")
@@ -58,33 +58,6 @@ function addGridIconEventListener(oneGrid) {
         }
     });
 }
-
-function grabCurrentPlayerPositions() {
-    const playerPositions = [];
-    let iconToLookFor;
-    if (isCirclePlayer) {
-        iconToLookFor = "o"
-    } else { 
-        iconToLookFor = "x"
-    }
-
-    for(let index = 0; index < gridList.length; index++){
-        let oneGrid = gridList[index];
-        if( oneGrid.classList[1] === iconToLookFor){
-            playerPositions.push(index)
-        }
-    }
-    return playerPositions;
-}
-
-function hasWinningCombination(currentPlayerPositions){
-    for (const oneCombo of WINNINGCOMBINATIONS) {
-        if(currentPlayerPositions.includes(oneCombo[0]) && currentPlayerPositions.includes(oneCombo[1]) && currentPlayerPositions.includes(oneCombo[2])){ 
-            console.log("Winning combination found!")
-        }
-    }
-}
-
 
 function checkIfCurrentPlayerWin() {
     // grab all the indexes for the current player from gridList
@@ -98,3 +71,31 @@ function checkIfCurrentPlayerWin() {
     //Else console.log ("No winning combination")
 
 } 
+
+function grabCurrentPlayerPositions() {
+    const playerPositions = [];
+    let iconToLookFor;
+    if (isCirclePlayerTurn) {
+        iconToLookFor = "o"
+    } else { 
+        iconToLookFor = "x"
+    }
+
+    for(let position = 0; position < gridList.length; position++){
+        let oneGrid = gridList[position];
+        if( oneGrid.classList[1] === iconToLookFor){
+            playerPositions.push(position)
+        }
+    }
+    console.log(" current Player " + iconToLookFor); 
+    console.log(playerPositions);
+    return playerPositions;
+}
+
+function hasWinningCombination(currentPlayerPositions){
+    for (const oneCombo of WINNINGCOMBINATIONS) {
+        if(currentPlayerPositions.includes(oneCombo[0]) && currentPlayerPositions.includes(oneCombo[1]) && currentPlayerPositions.includes(oneCombo[2])){ 
+            console.log("Winning combination found!")
+        }
+    }
+}
