@@ -17,8 +17,8 @@ body{
 
 main{
     background-color: red;
+    padding: 1rem;
     width: 90%;
-    height: 60%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -30,7 +30,6 @@ main{
     align-items: center;
     width: 20%;
 }
-
 
 
 .player-2-score{
@@ -46,4 +45,41 @@ main{
     grid-template-columns: auto auto auto;
     justify-content: center;
     align-items: center;
+}
+
+.grid{
+    width: 10rem;
+    height: 10rem;
+    border: 5px solid black;
+
+}
+
+.grid:first-child,
+.grid:nth-child(2),
+.grid:nth-child(3){
+    border-top: none;
+    
+}
+
+
+.grid:first-child,
+.grid:nth-child(4),
+.grid:nth-child(7){
+    border-left: none;
+    border-bottom: none;
+    border-right: none;
+}
+
+.grid:nth-child(2),
+.grid:nth-child(5),
+.grid:nth-child(8){
+    border-bottom: none;
+    border-right: none;
+}
+
+.grid:nth-child(3),
+.grid:nth-child(6),
+.grid:nth-child(9){
+    border-bottom: none;
+    border-right: none;
 }
