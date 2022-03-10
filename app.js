@@ -123,9 +123,6 @@ function hasWinningCombination(currentPlayerPositions){
 
 function isADraw() {
   for (const oneGrid of gridList) {
-      console.log(gridList)
-      console.log(oneGrid)
-      console.log(oneGrid.classList[2])
     if (oneGrid.classList[2] != "used") {
         // Found an empty spot
         return false;
