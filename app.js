@@ -168,3 +168,15 @@ function handleRestartButtonClick () {
 }
 
 restartButton.addEventListener("click", handleRestartButtonClick);
+
+
+// Player name
+const form = document.getElementById('playerOneDetails');
+const playerOneInput = document.getElementById('playerOneName');
+
+function updatePlayerOneName () {
+    console.log(form.elements['playerOneName'].value);
+    // Can set player One Name here!!
+}
+
+playerOneInput.addEventListener("input", updatePlayerOneName);
