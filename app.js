@@ -5,7 +5,7 @@ console.log("JS is working")
 let isCirclePlayer = false;
 
 const gridList = document.querySelectorAll(".grid");
-const WINNINGCOMBINAITONS = [
+const WINNINGCOMBINATIONS = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -77,13 +77,21 @@ function grabCurrentPlayerPositions() {
     return playerPositions;
 }
 
+function hasWinningCombination(currentPlayerPositions){
+    for (const oneCombo of WINNINGCOMBINATIONS) {
+        if(currentPlayerPositions.includes(oneCombo[0]) && currentPlayerPositions.includes(oneCombo[1]) && currentPlayerPositions.includes(oneCombo[2])){ 
+            console.log("Winning combination found!")
+        }
+    }
+}
+
 
 function checkIfCurrentPlayerWin() {
     // grab all the indexes for the current player from gridList
     const currentPlayerPositions = grabCurrentPlayerPositions();
     console.log(currentPlayerPositions);
     //loop through winning combination
-
+   hasWinningCombination(currentPlayerPositions);
     // check if there is a winning combination from current player indexes
     // use indexOF.
     //If win console.log "Player ... wins"
