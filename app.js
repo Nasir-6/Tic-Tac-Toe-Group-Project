@@ -1,6 +1,10 @@
 console.log("JS is working")
 console.log("branch")
 
+const playerOneWins = 0;
+
+const playerTwoWins = 0;
+
 
 // Boolean to determine who's turn it is - start with player 1 - X
 let isCirclePlayerTurn = false;
@@ -69,7 +73,7 @@ function addGridIconEventListener(oneGrid) {
 
             // Switch turns
             isCirclePlayerTurn = !isCirclePlayerTurn;
-
+            console.log(gridList);
             
 
             
@@ -78,6 +82,8 @@ function addGridIconEventListener(oneGrid) {
         }
     });
 }
+
+
 
 function currentPlayerWins() {
     // grab all the indexes for the current player from gridList
@@ -132,3 +138,24 @@ function isADraw() {
   // All spaces occupied
   return true;
 }
+
+const restartButton = document.querySelector(".restart-button");
+
+
+
+
+function handleRestartButtonClick () {
+    console.log(gridList);
+    console.log("restart button clicked");
+    for (const oneGrid of gridList) {
+        oneGrid.classList.remove('used')
+        oneGrid.classList.remove('x')
+        oneGrid.classList.remove('o')
+        if (oneGrid.firstElementChild) {
+            oneGrid.firstElementChild.remove()
+        }
+        isCirclePlayerTurn = false;
+    }
+}
+
+restartButton.addEventListener("click", handleRestartButtonClick);
