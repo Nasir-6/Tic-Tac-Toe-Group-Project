@@ -45,21 +45,40 @@ function addGridIconEventListener(oneGrid) {
             }
             // Once icon is made - place in the grid
             oneGrid.appendChild(icon);
+            
+            // Set grid to used (add used class)
+            oneGrid.classList.add("used")
 
-            checkIfCurrentPlayerWin();
+            
+
+            if(currentPlayerWins()){
+                if(isCirclePlayerTurn){
+                    console.log("Player 2 wins (o)")
+                } else{
+                    console.log("Player 1 wins (x)")
+                }   
+
+            } else{
+                // Now check if a draw
+                if(isADraw()){
+                    console.log("It's a Draw!!")
+                }
+                // Continue
+            }
 
             // Switch turns
             isCirclePlayerTurn = !isCirclePlayerTurn;
 
-            // Set grid to used (add used class)
-            oneGrid.classList.add("used")
+            
+
+            
         } else {
             console.log("This Grid is used")
         }
     });
 }
 
-function checkIfCurrentPlayerWin() {
+function currentPlayerWins() {
     // grab all the indexes for the current player from gridList
     const currentPlayerPositions = grabCurrentPlayerPositions();
     console.log(currentPlayerPositions);
@@ -82,13 +101,11 @@ function grabCurrentPlayerPositions() {
     }
 
     for(let position = 0; position < gridList.length; position++){
-        let oneGrid = gridList[position];
-        if( oneGrid.classList[1] === iconToLookFor){
+        if( gridList[position].classList[1] === iconToLookFor){
             playerPositions.push(position)
         }
     }
-    console.log(" current Player " + iconToLookFor); 
-    console.log(playerPositions);
+
     return playerPositions;
 }
 
@@ -96,6 +113,24 @@ function hasWinningCombination(currentPlayerPositions){
     for (const oneCombo of WINNINGCOMBINATIONS) {
         if(currentPlayerPositions.includes(oneCombo[0]) && currentPlayerPositions.includes(oneCombo[1]) && currentPlayerPositions.includes(oneCombo[2])){ 
             console.log("Winning combination found!")
+            return true;
         }
     }
+    // Never finds winning combo (i.e never )
+    return false;
+}
+
+
+function isADraw() {
+  for (const oneGrid of gridList) {
+      console.log(gridList)
+      console.log(oneGrid)
+      console.log(oneGrid.classList[2])
+    if (oneGrid.classList[2] != "used") {
+        // Found an empty spot
+        return false;
+    }
+  }
+  // All spaces occupied
+  return true;
 }
