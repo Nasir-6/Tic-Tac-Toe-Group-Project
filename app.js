@@ -45,6 +45,8 @@ function addGridIconEventListener(oneGrid) {
   // Named function to hoist to the top
   oneGrid.addEventListener("click", () => {
     if (!restartRequired) {
+
+        gameResultText.innerText = " "
       // console.log(oneGrid.classList)
       // Boolean to see if the grid is used (grab the class)
       isUsed = oneGrid.classList[2] === "used";
@@ -137,10 +139,9 @@ async function switchPlayerTurn(){
     // If player is 2 && cpu mode is on - force random attempt
     if(isCpuOn && isPlayerTwoTurn){
         // randomAttemptButton.click();
-        gameResultText.innerText = "Nasir's Wifi is connecting...."
         if(!restartRequired){
+            gameResultText.innerText = "Nasir's Wifi is connecting...."
             await cpuPlays();
-            // gameResultText.innerText = ""
         }
     }
 }
