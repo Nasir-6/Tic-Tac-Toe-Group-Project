@@ -190,7 +190,8 @@ function handleRestartButtonClick () {
         if (oneGrid.firstElementChild) {
             oneGrid.firstElementChild.remove()
         }
-        isCirclePlayerTurn = false;
+        // REMOVE THIS as want loser to start - don't want x to start all the time - otherwise will need to deal with
+        // isCirclePlayerTurn = false;
     }
     restartRequired = false;
     console.log(restartRequired);
