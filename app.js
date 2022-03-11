@@ -90,7 +90,11 @@ function addGridIconEventListener(oneGrid) {
             });
           } else {
             console.log(`${playerOneName} wins (x)`);
-            gameResultText.innerText = `${playerOneName} Wins the game, Please restart the game`;
+            if(isCpuOn){
+                gameResultText.innerText = `Nasir's wifi disconnected.....`;
+            } else{
+                gameResultText.innerText = `${playerOneName} Wins the game, Please restart the game`;
+            }
             playerOneWins.innerText++;
             restartRequired = true;
             // todo: prevent player from clicking anywhere else
@@ -133,10 +137,10 @@ async function switchPlayerTurn(){
     // If player is 2 && cpu mode is on - force random attempt
     if(isCpuOn && isPlayerTwoTurn){
         // randomAttemptButton.click();
-        gameResultText.innerText = "Nasir's Wifi is loading...."
-        await cpuPlays();
+        gameResultText.innerText = "Nasir's Wifi is connecting...."
         if(!restartRequired){
-            gameResultText.innerText = ""
+            await cpuPlays();
+            // gameResultText.innerText = ""
         }
     }
 }
@@ -149,7 +153,6 @@ const cpuPlays = () => {
     })
 }
 
-// setTimeout(randomAttemptButton.click(), 2000);
 
 function currentPlayerWins() {
     const currentPlayerPositions = grabCurrentPlayerPositions();
@@ -297,8 +300,10 @@ function changeToCPUMode() {
         playerTwoForm.elements['playerTwoName'].value = "Nasir's wifi"
         playerTwoForm.elements['playerTwoName'].style.width = playerTwoForm.elements['playerTwoName'].length
         cpuModeButton.innerText = "PVP Mode"
+        gameResultText.innerText = "Time to get merked!"
     } else{
         cpuModeButton.innerText = "CPU Mode"
+        gameResultText.innerText = "Yh thought so mate!"
     }
     
     
