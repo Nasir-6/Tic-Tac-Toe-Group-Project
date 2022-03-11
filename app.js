@@ -189,6 +189,7 @@ const playerOneInput = document.getElementById('playerOneName');
 function updatePlayerOneName () {
     // console.log(form.elements['playerOneName'].value);
     playerOneName = playerOneForm.elements['playerOneName'].value
+    this.style.width = this.value.length + "ch";
 }
 
 playerOneInput.addEventListener("input", updatePlayerOneName);
@@ -198,8 +199,9 @@ const playerTwoForm = document.getElementById('playerTwoDetails');
 const playerTwoInput = document.getElementById('playerTwoName');
 
 function updatePlayerTwoName () {
-    console.log(playerTwoForm.elements['playerTwoName'].value);
+    // console.log(playerTwoForm.elements['playerTwoName'].value);
     playerTwoName = playerTwoForm.elements['playerTwoName'].value
+    this.style.width = this.value.length + "ch";
 }
 
 playerTwoInput.addEventListener("input", updatePlayerTwoName);

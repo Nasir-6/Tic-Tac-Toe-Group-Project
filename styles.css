@@ -132,7 +132,8 @@ input{
     background-color: var(--light-color);
     /* border: none; */
     font-size: 20px;
-    width: fit-content;
+    min-width: 7ch;
+    width: 7ch;
 }
 
 .hide{
