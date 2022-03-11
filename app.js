@@ -226,3 +226,29 @@ function updatePlayerTwoName () {
 }
 
 playerTwoInput.addEventListener("input", updatePlayerTwoName);
+ 
+const CPUAttemptButton = document.getElementById('cpu-attempt-button');
+
+function randomGuess () {
+    let gridAttempt = generateGridAttempt;
+    
+
+}
+
+// generates num between 0 to 8 for index
+    function generateGridAttempt () { 
+        return Math.floor(Math.random() * 9);
+    }
+
+
+function randomAttempt() {
+    let number = generateGridAttempt();
+    console.log(number)
+    gridList[number].click()
+}
+
+      
+
+
+
+CPUAttemptButton.addEventListener("click", randomAttempt)
