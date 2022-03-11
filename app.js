@@ -235,7 +235,7 @@ playerTwoInput.addEventListener("input", updatePlayerTwoName);
  
 
 
-const CPUAttemptButton = document.getElementById('cpu-attempt-button');
+const randomAttemptButton = document.getElementById('random-attempt-button');
 
 // generates num between 0 to 8 for index
 function generateRandomGridPosition() {
@@ -254,4 +254,7 @@ function randomAttempt() {
 }
 
     
-CPUAttemptButton.addEventListener("click", randomAttempt)
+randomAttemptButton.addEventListener("click", randomAttempt)
+
+
+
