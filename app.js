@@ -3,7 +3,8 @@ console.log("branch")
 
 // Confetti Package
 
-
+// Flag to randomise player 2 clicks
+const isCpuOn = true;
 
 const playerOneWins = document.getElementById('player-one-wins')
 const playerTwoWins = document.getElementById('player-two-wins')
@@ -16,9 +17,10 @@ const playerOneIcon = document.getElementById('playerOneIcon')
 const playerTwoIcon = document.getElementById('playerTwoIcon')
 
 // Boolean to determine who's turn it is - start with player 1 - X
-let isCirclePlayerTurn = false;
+let isPlayerTwoTurn = false;
 // This flag is to prevent adding icons when game is over!! - can only add once restart button is pressed
 let restartRequired = false;
+
 
 const gridList = document.querySelectorAll(".grid");
 const WINNINGCOMBINATIONS = [
@@ -36,6 +38,7 @@ for (let i = 0; i < gridList.length; i++) {
     addGridIconEventListener(gridList[i])
 }
 
+
 function addGridIconEventListener(oneGrid) {
   // Named function to hoist to the top
   oneGrid.addEventListener("click", () => {
@@ -50,7 +53,7 @@ function addGridIconEventListener(oneGrid) {
         icon.classList.add("fa-solid");
         icon.classList.add("fa-6x");
 
-        if (isCirclePlayerTurn) {
+        if (isPlayerTwoTurn) {
           icon.classList.add("fa-o");
           // keep track of what is inside of the grid (o being placed)
           oneGrid.classList.add("o");
@@ -65,7 +68,7 @@ function addGridIconEventListener(oneGrid) {
         oneGrid.classList.add("used");
 
         if (currentPlayerWins()) {
-          if (isCirclePlayerTurn) {
+          if (isPlayerTwoTurn) {
             console.log(`${playerTwoName} wins (o)`);
             playerTwoWins.innerText++;
             // todo: prevent player from clicking anywhere else
@@ -112,7 +115,7 @@ function addGridIconEventListener(oneGrid) {
 }
 
 function switchPlayerTurn(){
-    isCirclePlayerTurn = !isCirclePlayerTurn;
+    isPlayerTwoTurn = !isPlayerTwoTurn;
     playerOneIcon.classList.toggle("hide")
     playerTwoIcon.classList.toggle("hide")
 }
@@ -128,7 +131,7 @@ function currentPlayerWins() {
 function grabCurrentPlayerPositions() {
     const playerPositions = [];
     let iconToLookFor;
-    if (isCirclePlayerTurn) {
+    if (isPlayerTwoTurn) {
         iconToLookFor = "o"
     } else { 
         iconToLookFor = "x"
