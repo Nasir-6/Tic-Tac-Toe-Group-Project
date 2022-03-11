@@ -2,7 +2,7 @@ console.log("JS is working")
 console.log("branch")
 
 // Confetti Package
-confetti();
+
 
 
 const playerOneWins = document.getElementById('player-one-wins')
@@ -75,11 +75,27 @@ function addGridIconEventListener(oneGrid) {
                     // todo: prevent player from clicking anywhere else 
                     restartRequired = true;
 
+                    // add in confetti from right when Player 2 wins
+                    confetti({
+                        particleCount: 100,
+                        angle: 120,
+                        spread: 55,
+                        origin: { x: 1 }
+                      });
+
                 } else{
                     console.log(`${playerOneName} wins (x)`)
                     playerOneWins.innerText++
                     restartRequired = true;
                     // todo: prevent player from clicking anywhere else 
+
+                    // Add in confetti from left when Player 1 wins
+                    confetti({
+                        particleCount: 100,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0 }
+                      });
                 }   
 
             } else{
