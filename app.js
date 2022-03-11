@@ -72,7 +72,11 @@ function addGridIconEventListener(oneGrid) {
         if (currentPlayerWins()) {
           if (isPlayerTwoTurn) {
             console.log(`${playerTwoName} wins (o)`);
-            gameResultText.innerText = `${playerTwoName} Wins the game, Please restart the game`;
+            if(isCpuOn){
+                gameResultText.innerText = `${playerOneName} mate, You best be switching to TalkTalk.`;
+            } else{
+                gameResultText.innerText = `${playerTwoName} Wins the game, Please restart the game`;
+            }
             playerTwoWins.innerText++;
             // todo: prevent player from clicking anywhere else
             restartRequired = true;
