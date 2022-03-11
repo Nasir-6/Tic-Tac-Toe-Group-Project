@@ -6,6 +6,8 @@ console.log("branch")
 // Flag to randomise player 2 clicks
 const isCpuOn = true;
 
+const gameResultText = document.getElementById('game-result')
+
 const playerOneWins = document.getElementById('player-one-wins')
 const playerTwoWins = document.getElementById('player-two-wins')
 
@@ -70,6 +72,7 @@ function addGridIconEventListener(oneGrid) {
         if (currentPlayerWins()) {
           if (isPlayerTwoTurn) {
             console.log(`${playerTwoName} wins (o)`);
+            gameResultText.innerText = `${playerTwoName} Wins the game, Please restart the game`;
             playerTwoWins.innerText++;
             // todo: prevent player from clicking anywhere else
             restartRequired = true;
@@ -83,6 +86,7 @@ function addGridIconEventListener(oneGrid) {
             });
           } else {
             console.log(`${playerOneName} wins (x)`);
+            gameResultText.innerText = `${playerOneName} Wins the game, Please restart the game`;
             playerOneWins.innerText++;
             restartRequired = true;
             // todo: prevent player from clicking anywhere else
@@ -99,6 +103,7 @@ function addGridIconEventListener(oneGrid) {
           // Now check if a draw
           if (isADraw()) {
             console.log("It's a Draw!!");
+            gameResultText.innerText = `It's a Draw! Please restart the game`;
           }
           // Continue
         }
@@ -195,6 +200,7 @@ function handleRestartButtonClick () {
     }
     restartRequired = false;
     console.log(restartRequired);
+    gameResultText.innerText = "";
     
 }
 
