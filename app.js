@@ -1,6 +1,10 @@
 console.log("JS is working")
 console.log("branch")
 
+// Confetti Package
+confetti();
+
+
 const playerOneWins = document.getElementById('player-one-wins')
 const playerTwoWins = document.getElementById('player-two-wins')
 
