@@ -130,10 +130,11 @@ p{
 
 input{
     background-color: var(--light-color);
-    /* border: none; */
-    font-size: 20px;
+    border: none;
+    font-size: 23px;
     min-width: 7ch;
     width: 7ch;
+    text-align: center;
 }
 
 .hide{
