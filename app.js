@@ -5,14 +5,15 @@ const playerOneWins = document.getElementById('player-one-wins')
 const playerTwoWins = document.getElementById('player-two-wins')
 
 let playerOneName = "Player 1";
+let playerTwoName = "Player 2";
 
+// Icons to hide/show current player's Icon
 const playerOneIcon = document.getElementById('playerOneIcon')
 const playerTwoIcon = document.getElementById('playerTwoIcon')
 
-
-
 // Boolean to determine who's turn it is - start with player 1 - X
 let isCirclePlayerTurn = false;
+// This flag is to prevent adding icons when game is over!! - can only add once restart button is pressed
 let restartRequired = false;
 
 const gridList = document.querySelectorAll(".grid");
@@ -65,14 +66,13 @@ function addGridIconEventListener(oneGrid) {
 
             if(currentPlayerWins()){
                 if(isCirclePlayerTurn){
-                    console.log("Player 2 wins (o)")
+                    console.log(`${playerTwoName} wins (o)`)
                     playerTwoWins.innerText++
-                    restartRequired = true;
-                   
                     // todo: prevent player from clicking anywhere else 
+                    restartRequired = true;
 
                 } else{
-                    console.log("Player 1 wins (x)")
+                    console.log(`${playerOneName} wins (x)`)
                     playerOneWins.innerText++
                     restartRequired = true;
                     // todo: prevent player from clicking anywhere else 
@@ -181,13 +181,25 @@ restartButton.addEventListener("click", handleRestartButtonClick);
 
 
 
-// Player name
-const form = document.getElementById('playerOneDetails');
+// Player name - event listeners to allow changing names using input(forms)
+// Do for player two 
+const playerOneForm = document.getElementById('playerOneDetails');
 const playerOneInput = document.getElementById('playerOneName');
 
 function updatePlayerOneName () {
-    console.log(form.elements['playerOneName'].value);
-    // Can set player One Name here!!
+    // console.log(form.elements['playerOneName'].value);
+    playerOneName = playerOneForm.elements['playerOneName'].value
 }
 
 playerOneInput.addEventListener("input", updatePlayerOneName);
+
+// Do for player two 
+const playerTwoForm = document.getElementById('playerTwoDetails');
+const playerTwoInput = document.getElementById('playerTwoName');
+
+function updatePlayerTwoName () {
+    console.log(playerTwoForm.elements['playerTwoName'].value);
+    playerTwoName = playerTwoForm.elements['playerTwoName'].value
+}
+
+playerTwoInput.addEventListener("input", updatePlayerTwoName);
