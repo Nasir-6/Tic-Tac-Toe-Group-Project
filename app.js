@@ -37,87 +37,78 @@ for (let i = 0; i < gridList.length; i++) {
 }
 
 function addGridIconEventListener(oneGrid) {
-    // Named function to hoist to the top
-    oneGrid.addEventListener("click", () => {
+  // Named function to hoist to the top
+  oneGrid.addEventListener("click", () => {
+    if (!restartRequired) {
+      // console.log(oneGrid.classList)
+      // Boolean to see if the grid is used (grab the class)
+      isUsed = oneGrid.classList[2] === "used";
+      // console.log("Grid is being occupied by " + oneGrid.classList[1])
 
-        if(!restartRequired){
-        // console.log(oneGrid.classList)
-        // Boolean to see if the grid is used (grab the class)
-        isUsed = oneGrid.classList[2] === "used";
-        // console.log("Grid is being occupied by " + oneGrid.classList[1])
+      if (!isUsed) {
+        let icon = document.createElement("i");
+        icon.classList.add("fa-solid");
+        icon.classList.add("fa-6x");
 
-        if (!isUsed) {
-            let icon = document.createElement("i");
-            icon.classList.add("fa-solid");
-            icon.classList.add("fa-6x");
-
-            if (isCirclePlayerTurn) {
-                icon.classList.add("fa-o");
-                // keep track of what is inside of the grid (o being placed)
-                oneGrid.classList.add("o")
-            } else {
-                icon.classList.add("fa-x");
-                oneGrid.classList.add("x")
-            }
-            // Once icon is made - place in the grid
-            oneGrid.appendChild(icon);
-            
-            
-            // Set grid to used (add used class)
-            oneGrid.classList.add("used")
-
-            
-
-            if(currentPlayerWins()){
-                if(isCirclePlayerTurn){
-                    console.log(`${playerTwoName} wins (o)`)
-                    playerTwoWins.innerText++
-                    // todo: prevent player from clicking anywhere else 
-                    restartRequired = true;
-
-                    // add in confetti from right when Player 2 wins
-                    confetti({
-                        particleCount: 100,
-                        angle: 120,
-                        spread: 55,
-                        origin: { x: 1 }
-                      });
-
-                } else{
-                    console.log(`${playerOneName} wins (x)`)
-                    playerOneWins.innerText++
-                    restartRequired = true;
-                    // todo: prevent player from clicking anywhere else 
-
-                    // Add in confetti from left when Player 1 wins
-                    confetti({
-                        particleCount: 100,
-                        angle: 60,
-                        spread: 55,
-                        origin: { x: 0 }
-                      });
-                }   
-
-            } else{
-                // Now check if a draw
-                if(isADraw()){
-                    console.log("It's a Draw!!")
-                }
-                // Continue
-            }
-
-            // Switch turns
-            switchPlayerTurn();
-            
-
-            
+        if (isCirclePlayerTurn) {
+          icon.classList.add("fa-o");
+          // keep track of what is inside of the grid (o being placed)
+          oneGrid.classList.add("o");
         } else {
-            console.log("This Grid is used")
+          icon.classList.add("fa-x");
+          oneGrid.classList.add("x");
         }
-    } else{
-        console.log('restart required')
+        // Once icon is made - place in the grid
+        oneGrid.appendChild(icon);
+
+        // Set grid to used (add used class)
+        oneGrid.classList.add("used");
+
+        if (currentPlayerWins()) {
+          if (isCirclePlayerTurn) {
+            console.log(`${playerTwoName} wins (o)`);
+            playerTwoWins.innerText++;
+            // todo: prevent player from clicking anywhere else
+            restartRequired = true;
+
+            // add in confetti from right when Player 2 wins
+            confetti({
+              particleCount: 100,
+              angle: 120,
+              spread: 55,
+              origin: { x: 1 },
+            });
+          } else {
+            console.log(`${playerOneName} wins (x)`);
+            playerOneWins.innerText++;
+            restartRequired = true;
+            // todo: prevent player from clicking anywhere else
+
+            // Add in confetti from left when Player 1 wins
+            confetti({
+              particleCount: 100,
+              angle: 60,
+              spread: 55,
+              origin: { x: 0 },
+            });
+          }
+        } else {
+          // Now check if a draw
+          if (isADraw()) {
+            console.log("It's a Draw!!");
+          }
+          // Continue
+        }
+
+        // Switch turns
+        switchPlayerTurn();
+      } else {
+        console.log("This Grid is used");
+      }
+    } else {
+      console.log("restart required");
     }
-    });
+  });
 }
 
 function switchPlayerTurn(){
