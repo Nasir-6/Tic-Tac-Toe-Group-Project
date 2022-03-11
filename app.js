@@ -4,7 +4,7 @@ console.log("branch")
 // Confetti Package
 
 // Flag to randomise player 2 clicks
-const isCpuOn = true;
+let isCpuOn = false;
 
 const gameResultText = document.getElementById('game-result')
 
@@ -119,13 +119,33 @@ function addGridIconEventListener(oneGrid) {
   });
 }
 
-function switchPlayerTurn(){
+async function switchPlayerTurn(){
     isPlayerTwoTurn = !isPlayerTwoTurn;
     playerOneIcon.classList.toggle("hide")
     playerTwoIcon.classList.toggle("hide")
+
+    console.log('switching player');
+    
+    // If player is 2 && cpu mode is on - force random attempt
+    if(isCpuOn && isPlayerTwoTurn){
+        // randomAttemptButton.click();
+        gameResultText.innerText = "Nasir's Wifi is loading...."
+        await cpuPlays();
+        if(!restartRequired){
+            gameResultText.innerText = ""
+        }
+    }
 }
 
+const cpuPlays = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(randomAttemptButton.click())
+        }, 2000);
+    })
+}
 
+// setTimeout(randomAttemptButton.click(), 2000);
 
 function currentPlayerWins() {
     const currentPlayerPositions = grabCurrentPlayerPositions();
@@ -256,5 +276,31 @@ function randomAttempt() {
     
 randomAttemptButton.addEventListener("click", randomAttempt)
 
+
+
+
+const cpuModeButton = document.getElementById('cpu-mode-button');
+
+
+function changeToCPUMode() {
+    console.log('CPU button clicked');
+    console.log(cpuModeButton);
+    console.log(cpuModeButton.innerText);
+    
+    isCpuOn = !isCpuOn
+    // Allows switching between modes
+    if(isCpuOn){
+        playerTwoForm.elements['playerTwoName'].value = "Nasir's wifi"
+        playerTwoForm.elements['playerTwoName'].style.width = playerTwoForm.elements['playerTwoName'].length
+        cpuModeButton.innerText = "PVP Mode"
+    } else{
+        cpuModeButton.innerText = "CPU Mode"
+    }
+    
+    
+}
+
+    
+cpuModeButton.addEventListener("click", changeToCPUMode)
 
 
