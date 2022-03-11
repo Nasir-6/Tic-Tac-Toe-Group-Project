@@ -4,7 +4,7 @@ console.log("branch")
 // Confetti Package
 
 // Flag to randomise player 2 clicks
-const isCpuOn = true;
+let isCpuOn = false;
 
 const gameResultText = document.getElementById('game-result')
 
@@ -123,13 +123,33 @@ function addGridIconEventListener(oneGrid) {
   });
 }
 
-function switchPlayerTurn(){
+async function switchPlayerTurn(){
     isPlayerTwoTurn = !isPlayerTwoTurn;
     playerOneIcon.classList.toggle("hide")
     playerTwoIcon.classList.toggle("hide")
+
+    console.log('switching player');
+    
+    // If player is 2 && cpu mode is on - force random attempt
+    if(isCpuOn && isPlayerTwoTurn){
+        // randomAttemptButton.click();
+        gameResultText.innerText = "Nasir's Wifi is loading...."
+        await cpuPlays();
+        if(!restartRequired){
+            gameResultText.innerText = ""
+        }
+    }
 }
 
+const cpuPlays = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(randomAttemptButton.click())
+        }, 2000);
+    })
+}
 
+// setTimeout(randomAttemptButton.click(), 2000);
 
 function currentPlayerWins() {
     const currentPlayerPositions = grabCurrentPlayerPositions();
@@ -236,3 +256,55 @@ function updatePlayerTwoName () {
 }
 
 playerTwoInput.addEventListener("input", updatePlayerTwoName);
+ 
+
+
+const randomAttemptButton = document.getElementById('random-attempt-button');
+
+// generates num between 0 to 8 for index
+function generateRandomGridPosition() {
+    // Math.random generates between 0-1
+    // 0.1*9 = 0.9 (Floor => 0) - Min index
+    // 0.9*9 = 8.1 (Floor => 8) - Max index
+  return Math.floor(Math.random() * 9);
+}
+
+function randomAttempt() {
+  let gridPosition = generateRandomGridPosition();
+  while (gridList[gridPosition].classList[2] === "used") {
+    gridPosition = generateRandomGridPosition();
+  }
+  gridList[gridPosition].click();
+}
+
+    
+randomAttemptButton.addEventListener("click", randomAttempt)
+
+
+
+
+const cpuModeButton = document.getElementById('cpu-mode-button');
+
+
+function changeToCPUMode() {
+    console.log('CPU button clicked');
+    console.log(cpuModeButton);
+    console.log(cpuModeButton.innerText);
+    
+    isCpuOn = !isCpuOn
+    // Allows switching between modes
+    if(isCpuOn){
+        playerTwoForm.elements['playerTwoName'].value = "Nasir's wifi"
+        playerTwoForm.elements['playerTwoName'].style.width = playerTwoForm.elements['playerTwoName'].length
+        cpuModeButton.innerText = "PVP Mode"
+    } else{
+        cpuModeButton.innerText = "CPU Mode"
+    }
+    
+    
+}
+
+    
+cpuModeButton.addEventListener("click", changeToCPUMode)
+
+
