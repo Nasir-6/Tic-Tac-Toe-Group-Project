@@ -104,18 +104,19 @@ h1{
 }
 
 p{
-    font-size: 30px;
+    font-size: 2rem;
 }
 
 .btn{
     padding: 0.8rem 1.5rem;
-    border: 4px solid var(--dark-color);
+    border: 0.25rem solid var(--dark-color);
     border-radius: 1rem;
     background-color: var(--light-color);
     color: var(--dark-color);
     font-weight: 550;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     transition-duration: 0.4s;
+    font-size: 1.5rem;
 }
 
 .btn:hover{
@@ -133,7 +134,7 @@ p{
 input{
     background-color: var(--light-color);
     border: none;
-    font-size: 23px;
+    font-size: 1.5rem;
     min-width: 7ch;
     width: 7ch;
     text-align: center;
@@ -147,3 +148,61 @@ input{
     transition-duration: 0.4s;
     color: var(--winning-color);
 }
+
+
+
+/* Responsive design */
+/* Default html font-size is 16px */
+/* rem is 16px * value
+1.5 rem = 16 * 1.5 = 24px 
+So for responive design */
+@media only screen and (max-width: 870px) {
+
+    html { 
+        font-size: 12px;
+    }
+
+  }
+
+
+  @media only screen and (max-width: 610px) {
+
+    html { 
+        font-size: 12px;
+    }
+
+    /* Rearrange main to use grid areas */
+    main {
+        display: grid;
+        justify-content: center;
+        grid-template-areas: 
+        "grid grid"
+        "playerOneArea playerTwoArea";
+        gap: 2rem;
+    }
+
+      .grid-map{
+          justify-self: center;
+          grid-area: grid;
+      }
+
+      .player-1-score{
+          width: fit-content;
+          justify-self: right;
+          grid-area: playerOneArea;
+      }
+
+      .player-2-score{
+        width: fit-content;
+        grid-area: playerTwoArea;
+    }
+
+  }
+/* 
+  @media only screen and (max-width: 420px) {
+
+    html { 
+        font-size: 5px;
+    }
+
+  } */
