@@ -2,8 +2,13 @@ console.log("JS is working")
 console.log("branch")
 
 const playerOneWins = document.getElementById('player-one-wins')
-
 const playerTwoWins = document.getElementById('player-two-wins')
+
+let playerOneName = "Player 1";
+
+const playerOneIcon = document.getElementById('playerOneIcon')
+const playerTwoIcon = document.getElementById('playerTwoIcon')
+
 
 
 // Boolean to determine who's turn it is - start with player 1 - X
@@ -30,6 +35,7 @@ function addGridIconEventListener(oneGrid) {
     // Named function to hoist to the top
     oneGrid.addEventListener("click", () => {
 
+        if(!restartRequired){
         // console.log(oneGrid.classList)
         // Boolean to see if the grid is used (grab the class)
         isUsed = oneGrid.classList[2] === "used";
@@ -51,6 +57,7 @@ function addGridIconEventListener(oneGrid) {
             // Once icon is made - place in the grid
             oneGrid.appendChild(icon);
             
+            
             // Set grid to used (add used class)
             oneGrid.classList.add("used")
 
@@ -61,14 +68,13 @@ function addGridIconEventListener(oneGrid) {
                     console.log("Player 2 wins (o)")
                     playerTwoWins.innerText++
                     restartRequired = true;
-                    while(restartRequired){}
+                   
                     // todo: prevent player from clicking anywhere else 
 
                 } else{
                     console.log("Player 1 wins (x)")
                     playerOneWins.innerText++
                     restartRequired = true;
-                    while(restartRequired){}
                     // todo: prevent player from clicking anywhere else 
                 }   
 
@@ -81,29 +87,31 @@ function addGridIconEventListener(oneGrid) {
             }
 
             // Switch turns
-            isCirclePlayerTurn = !isCirclePlayerTurn;
+            switchPlayerTurn();
             
 
             
         } else {
             console.log("This Grid is used")
         }
+    } else{
+        console.log('restart required')
+    }
     });
+}
+
+function switchPlayerTurn(){
+    isCirclePlayerTurn = !isCirclePlayerTurn;
+    playerOneIcon.classList.toggle("hide")
+    playerTwoIcon.classList.toggle("hide")
 }
 
 
 
 function currentPlayerWins() {
-    // grab all the indexes for the current player from gridList
     const currentPlayerPositions = grabCurrentPlayerPositions();
-    console.log(currentPlayerPositions);
-    //loop through winning combination
+    // console.log(currentPlayerPositions);
    return hasWinningCombination(currentPlayerPositions);
-    // check if there is a winning combination from current player indexes
-    // use indexOF.
-    //If win console.log "Player ... wins"
-    //Else console.log ("No winning combination")
-
 } 
 
 function grabCurrentPlayerPositions() {
@@ -165,9 +173,12 @@ function handleRestartButtonClick () {
         isCirclePlayerTurn = false;
     }
     restartRequired = false;
+    console.log(restartRequired);
+    
 }
 
 restartButton.addEventListener("click", handleRestartButtonClick);
+
 
 
 // Player name
