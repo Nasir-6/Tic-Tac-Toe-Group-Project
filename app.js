@@ -156,6 +156,11 @@ function hasWinningCombination(currentPlayerPositions){
     for (const oneCombo of WINNINGCOMBINATIONS) {
         if(currentPlayerPositions.includes(oneCombo[0]) && currentPlayerPositions.includes(oneCombo[1]) && currentPlayerPositions.includes(oneCombo[2])){ 
             console.log("Winning combination found!")
+            // Set winning combo to green on grid
+            gridList[oneCombo[0]].firstElementChild.classList.add("green")
+            gridList[oneCombo[1]].firstElementChild.classList.add("green")
+            gridList[oneCombo[2]].firstElementChild.classList.add("green")
+            // console.log(gridList[oneCombo[0]].classList);
             return true;
         }
     }
@@ -187,6 +192,7 @@ function handleRestartButtonClick () {
         oneGrid.classList.remove('used')
         oneGrid.classList.remove('x')
         oneGrid.classList.remove('o')
+        oneGrid.classList.remove('green')
         if (oneGrid.firstElementChild) {
             oneGrid.firstElementChild.remove()
         }
