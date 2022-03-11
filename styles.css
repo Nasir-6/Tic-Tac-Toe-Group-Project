@@ -121,6 +121,7 @@ p{
 .btn:hover{
     border: 4px solid var(--signature-color);
     color: var(--signature-color);
+    cursor: pointer;
 }
 
 
