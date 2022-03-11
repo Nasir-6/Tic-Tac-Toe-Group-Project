@@ -233,28 +233,25 @@ function updatePlayerTwoName () {
 
 playerTwoInput.addEventListener("input", updatePlayerTwoName);
  
+
+
 const CPUAttemptButton = document.getElementById('cpu-attempt-button');
 
-function randomGuess () {
-    let gridAttempt = generateGridAttempt;
-    
-
-}
-
 // generates num between 0 to 8 for index
-    function generateGridAttempt () { 
-        return Math.floor(Math.random() * 9);
-    }
-
+function generateRandomGridPosition() {
+    // Math.random generates between 0-1
+    // 0.1*9 = 0.9 (Floor => 0) - Min index
+    // 0.9*9 = 8.1 (Floor => 8) - Max index
+  return Math.floor(Math.random() * 9);
+}
 
 function randomAttempt() {
-    let number = generateGridAttempt();
-    console.log(number)
-    gridList[number].click()
+  let gridPosition = generateRandomGridPosition();
+  while (gridList[gridPosition].classList[2] === "used") {
+    gridPosition = generateRandomGridPosition();
+  }
+  gridList[gridPosition].click();
 }
 
-      
-
-
-
+    
 CPUAttemptButton.addEventListener("click", randomAttempt)
