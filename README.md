@@ -34,8 +34,22 @@ The game can be played [here](https://nasir-6.github.io/Tic-Tac-Toe-Group-Projec
 
 ## Features in action
 Here are some gifs and images of the application features
-### Post and Get request
+### Clean and Responsive UI
 ![post and get request in action](https://github.com/Nasir-6/not_my_fitness_pal/blob/main/readme-gifs-images/post_get_demo.gif)
+- insert gif of close to winning and confetti, plus some responsive design
+- talk about 
+- nice design
+- responsive
+- confetti and color change
+
+### Score tracking and Name changing
+- insert gif of name change and score going up
+
+### CPU mode
+- insert gif of CPU mode
+- talk about using promises/await/setTimeout to simulate CPU turn 
+- Based off random turn generator (included button)
+- BNTA cohort 4 Easter egg (Up against Nasir's terrible Wi-Fi)
 
 
 ## What we learnt
