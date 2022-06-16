@@ -32,7 +32,7 @@ The game can be played [here](https://nasir-6.github.io/Tic-Tac-Toe-Group-Projec
     2. Open the index.html file using your browser or use the Live Server extension on VSCode 
 
 
-## Features in action
+## Features
 Here are some gifs and images of the application features
 ### Clean and Responsive UI
 ![post and get request in action](https://github.com/Nasir-6/not_my_fitness_pal/blob/main/readme-gifs-images/post_get_demo.gif)
@@ -41,9 +41,8 @@ Here are some gifs and images of the application features
 - nice design
 - responsive
 - confetti and color change
+- Score tracking and Name changing
 
-### Score tracking and Name changing
-- insert gif of name change and score going up
 
 ### CPU mode
 - insert gif of CPU mode
