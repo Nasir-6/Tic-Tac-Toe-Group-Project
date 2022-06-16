@@ -34,7 +34,6 @@ The game can be played [here](https://nasir-6.github.io/Tic-Tac-Toe-Group-Projec
 
 
 ## Features
-Here are some gifs and images of the application features
 ### Clean and Responsive UI
 ![tic-tac-toe UI features](https://github.com/Nasir-6/Tic-Tac-Toe-Group-Project/blob/main/UI-demo.gif)
 - Clean design and consistent colour scheme
