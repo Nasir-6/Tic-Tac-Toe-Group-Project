@@ -35,7 +35,7 @@ The game can be played [here](https://nasir-6.github.io/Tic-Tac-Toe-Group-Projec
 ## Features
 Here are some gifs and images of the application features
 ### Clean and Responsive UI
-![post and get request in action](https://github.com/Nasir-6/not_my_fitness_pal/blob/main/readme-gifs-images/post_get_demo.gif)
+![tic-tac-toe UI features](https://github.com/Nasir-6/Tic-Tac-Toe-Group-Project/blob/main/UI-demo.gif)
 - insert gif of close to winning and confetti, plus some responsive design
 - talk about 
 - nice design
@@ -45,6 +45,7 @@ Here are some gifs and images of the application features
 
 
 ### CPU mode
+![CPU mode feature](https://github.com/Nasir-6/Tic-Tac-Toe-Group-Project/blob/main/CPU-mode-demo.gif)
 - insert gif of CPU mode
 - talk about using promises/await/setTimeout to simulate CPU turn 
 - Based off random turn generator (included button)
