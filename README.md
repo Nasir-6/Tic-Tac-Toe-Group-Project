@@ -36,20 +36,18 @@ The game can be played [here](https://nasir-6.github.io/Tic-Tac-Toe-Group-Projec
 Here are some gifs and images of the application features
 ### Clean and Responsive UI
 ![tic-tac-toe UI features](https://github.com/Nasir-6/Tic-Tac-Toe-Group-Project/blob/main/UI-demo.gif)
-- insert gif of close to winning and confetti, plus some responsive design
-- talk about 
-- nice design
-- responsive
-- confetti and color change
-- Score tracking and Name changing
+- Clean design and consistent colour scheme
+- Small UI features such as icon showing for current players, confetti for the winner and color change for the winning combination to level up the UI experience
+- Compete against friends with score tracking and seamless name changing features
+- Responsive design so application can be played on web or mobile
 
 
 ### CPU mode
 ![CPU mode feature](https://github.com/Nasir-6/Tic-Tac-Toe-Group-Project/blob/main/CPU-mode-demo.gif)
-- insert gif of CPU mode
-- talk about using promises/await/setTimeout to simulate CPU turn 
-- Based off random turn generator (included button)
-- BNTA cohort 4 Easter egg (Up against Nasir's terrible Wi-Fi)
+- Selecting CPU mode, changes player 2 to a CPU controlled player
+- Developed using promises/await/setTimeout to simulate the CPUs turn 
+- Based off random turn generator (This was an initial feature as seen by the button on screen)
+- BNTA cohort 4 Easter egg (Play against Nasir's terrible Wi-Fi)
 
 
 ## What we learnt
