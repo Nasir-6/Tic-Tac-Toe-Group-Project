@@ -9,7 +9,8 @@ By Cristian, Michael, Nasir and Suraya.
 * [Project Description](#project-description)
 * [Local Setup Instructions](#local-setup-instructions)
 * [Features in Action](#features-in-action)
-  * [Post and Get Request](#post-and-get-request)
+  * [Clean and Responsive UI](#clean-and-responsive-ui)
+  * [CPU Mode](#cpu-mode)
 * [Future Improvements](#future-improvements)
 * [What we learnt](#what-we-learnt)
 * [Contributors](#contributors)
@@ -51,7 +52,7 @@ Here are some gifs and images of the application features
 
 
 ## What we learnt
-- How to wireframe and an application and use HTML, CSS and vanilla JS to develop a basic game
+- How to wireframe an application and use HTML, CSS and vanilla JS to develop a basic game
 - How to use GitHub for collaboration (using branches and dealing with merge conflicts)
 - Using flexbox, grid and media queries for a responsive design
 - Using external npm packages in our projects (Canvas-confetti and FontAwesome)
