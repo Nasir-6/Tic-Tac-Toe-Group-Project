@@ -1,6 +1,7 @@
 
 # Tic-Tac-Toe-Group-Project
-[Click here](https://nasir-6.github.io/Tic-Tac-Toe-Group-Project/) to play
+[Click here](https://nasir-6.github.io/Tic-Tac-Toe-Group-Project/) to play the game.
+
 By Cristian, Michael, Nasir and Suraya.
 
 ## Table of contents
