@@ -8,7 +8,7 @@ By Cristian, Michael, Nasir and Suraya.
 <!--ts-->
 * [Project Description](#project-description)
 * [Local Setup Instructions](#local-setup-instructions)
-* [Features in Action](#features-in-action)
+* [Features](#features)
   * [Clean and Responsive UI](#clean-and-responsive-ui)
   * [CPU Mode](#cpu-mode)
 * [Future Improvements](#future-improvements)
