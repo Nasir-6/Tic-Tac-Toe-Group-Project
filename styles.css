@@ -151,6 +151,16 @@ input{
     color: var(--winning-color);
 }
 
+.fa-github{
+  padding-top: 0.5rem;
+  color: var(--dark-color);
+}
+
+.fa-github:hover{
+  color: var(--signature-color);
+  cursor: pointer;
+}
+
 
 
 /* Responsive design */
