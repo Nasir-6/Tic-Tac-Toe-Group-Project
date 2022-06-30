@@ -46,14 +46,14 @@ The game can be played [here](https://nasir-6.github.io/Tic-Tac-Toe-Group-Projec
 ![CPU mode feature](https://github.com/Nasir-6/Tic-Tac-Toe-Group-Project/blob/main/CPU-mode-demo.gif)
 - Selecting CPU mode changes player 2 to a CPU controlled player
 - Developed using promises/await/setTimeout to simulate the CPU's turn 
-- Based off of random turn generator (This was an initial feature as seen by the button on screen)
+- Based off of random turn generator (This was an initial feature as evident by the "Random Attempt" button)
 - BNTA cohort 4 Easter egg (Play against Nasir's terrible Wi-Fi)
 
 
 ## What we learnt
 - How to wireframe an application and use HTML, CSS and vanilla JS to develop a basic game
 - How to use GitHub for collaboration (using branches and dealing with merge conflicts)
-- Using flexbox, grid and media queries for a responsive design
+- Using CSS Flexbox, Grid and Media Queries for a responsive design
 - Using external npm packages in our projects (Canvas-confetti and FontAwesome)
 - Incorporating promises/await/setTimeout to simulate a CPU turn
 
